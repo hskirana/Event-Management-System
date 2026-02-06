@@ -2,43 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-  <!-- MOBILE SAFE FULLSCREEN -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>Event Management System — Landing</title>
+  <title>Event Management System</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
       width: 100%;
       height: 100%;
-      overflow-x: hidden;
       font-family: 'Open Sans', system-ui, sans-serif;
       background: #000;
     }
 
-    /* ---------------- NAV ---------------- */
+    /* NAV */
     .topbar {
       position: absolute;
       top: 0;
       right: 0;
-      z-index: 10;
       padding: 16px 28px;
+      z-index: 10;
     }
 
     nav ul {
-      list-style: none;
       display: flex;
       gap: 22px;
-      align-items: center;
+      list-style: none;
     }
 
     nav a {
@@ -53,41 +49,36 @@
       border-radius: 4px;
     }
 
-    /* ---------------- HERO ---------------- */
+    /* HERO */
     .hero {
       position: relative;
       min-height: 100dvh;
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       overflow: hidden;
+      text-align: center;
     }
 
-    /* VIDEO — MOBILE SAFE */
+    /* VIDEO */
     .hero-video {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transform: translate(-50%, -50%);
+      object-fit: cover; /* desktop */
+      background: #000;
       z-index: 0;
     }
 
-    /* MOBILE VIDEO ADJUSTMENT */
+    /* MOBILE: NO ZOOM */
     @media (max-width: 768px) {
       .hero-video {
-        width: auto;
-        height: 100%;
-        min-width: 100%;
-        min-height: 100%;
+        object-fit: contain; /* <-- THIS stops zoom */
       }
     }
 
-    /* DARK OVERLAY */
+    /* OVERLAY */
     .hero::after {
       content: "";
       position: absolute;
@@ -99,9 +90,9 @@
     .hero-inner {
       position: relative;
       z-index: 2;
+      color: #fff;
       max-width: 900px;
       padding: 40px 20px;
-      color: #fff;
     }
 
     .brand img {
@@ -148,10 +139,9 @@
 
     .btn {
       border: 2px solid rgba(255,255,255,.4);
-      background: transparent;
     }
 
-    /* ---------------- CONTENT ---------------- */
+    /* CONTENT */
     .wrapper {
       background: #fff;
       padding: 90px 20px;
@@ -164,69 +154,15 @@
       margin-bottom: 50px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    .card-title {
-      margin: 18px 0 12px;
-    }
-
-    .card-text {
-      font-size: 14px;
-      line-height: 1.7;
-      color: #666;
-      margin-bottom: 16px;
-    }
-
-    .btn1 {
-      background: #b78ad6;
-      color: #fff;
-      padding: 10px 26px;
-      border-radius: 4px;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    /* ---------------- FOOTER ---------------- */
     footer {
       background: #f5f5f5;
+      padding: 30px;
       text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
-      color: #444;
-    }
-
-    footer img {
-      width: 28px;
-      margin: 0 8px;
-    }
-
-    /* ---------------- RESPONSIVE ---------------- */
-    @media (max-width: 900px) {
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
     @media (max-width: 600px) {
       h1 {
         font-size: 32px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
       }
 
       .actions {
@@ -238,85 +174,273 @@
 
 <body>
 
-  <!-- NAV -->
-  <header class="topbar">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="login.php">Login</a></li>
-        <li><a href="contact.php">Contact</a></li>
-        <li><a class="btn-book" href="booking.php">Book Now</a></li>
-      </ul>
-    </nav>
-  </header>
+<header class="topbar">
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a class="btn-book" href="#">Book Now</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="vk.mp4" type="video/mp4">
+  </video>
 
-    <!-- VIDEO (PATH UNCHANGED) -->
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="vk.mp4" type="video/mp4">
-    </video>
-
-    <div class="hero-inner">
-      <div class="brand">
-        <img src="log.png" alt="logo">
-      </div>
-
-      <h1>Event Management System</h1>
-      <p class="lead">Making Your Special Events Lasting Memories</p>
-
-      <p class="desc">
-        Local, affordable, and completely stress-free! Plan your next Wedding,
-        Corporate Event, Holiday Event, Fundraiser, or Birthday with Stage One
-        Event Planning!
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href="booking.php">Book Your Event</a>
-        <a class="btn" href="services.html">See Our Pricing</a>
-      </div>
+  <div class="hero-inner">
+    <div class="brand">
+      <img src="log.png" alt="logo">
     </div>
-  </section>
 
-  <!-- CONTENT -->
-  <div class="wrapper">
-    <h2 class="section-title">Events Are Our Specialty</h2>
+    <h1>Event Management System</h1>
+    <p class="lead">Making Your Special Events Lasting Memories</p>
+    <p class="desc">
+      Local, affordable, and completely stress-free!
+    </p>
 
-    <div class="cards">
-      <div class="card">
-        <img src="p1.jpg">
-        <h3 class="card-title">Event Reservations</h3>
-        <p class="card-text">Planning an event should feel exciting—not stressful.</p>
-        <a href="services.html" class="btn1">Learn More</a>
-      </div>
-
-      <div class="card">
-        <img src="p2.jpg">
-        <h3 class="card-title">Location Set-Up</h3>
-        <p class="card-text">We bring every space to life.</p>
-        <a href="services.html" class="btn1">Learn More</a>
-      </div>
-
-      <div class="card">
-        <img src="p3.jpg">
-        <h3 class="card-title">Event Catering</h3>
-        <p class="card-text">Great food for unforgettable events.</p>
-        <a href="services.html" class="btn1">Learn More</a>
-      </div>
+    <div class="actions">
+      <a class="btn primary" href="#">Book Your Event</a>
+      <a class="btn" href="#">See Our Pricing</a>
     </div>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <img src="insta.png">
-    <img src="face.png">
-    <img src="X.png">
-    <p>© 2026 Event Management System — All rights reserved</p>
-  </footer>
+<div class="wrapper">
+  <h2 class="section-title">Events Are Our Specialty</h2>
+</div>
+
+<footer>
+  © 2026 Event Management System
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Event Management System</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Open Sans', system-ui, sans-serif;
+      background: #000;
+    }
+
+    /* NAV */
+    .topbar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 16px 28px;
+      z-index: 10;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn-book {
+      padding: 10px 18px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-radius: 4px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* VIDEO */
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* desktop */
+      background: #000;
+      z-index: 0;
+    }
+
+    /* MOBILE: NO ZOOM */
+    @media (max-width: 768px) {
+      .hero-video {
+        object-fit: contain; /* <-- THIS stops zoom */
+      }
+    }
+
+    /* OVERLAY */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 900px;
+      padding: 40px 20px;
+    }
+
+    .brand img {
+      width: 160px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-family: 'Merriweather';
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .desc {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn,
+    .btn.primary {
+      padding: 12px 26px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .btn.primary {
+      background: #9544cb;
+    }
+
+    .btn {
+      border: 2px solid rgba(255,255,255,.4);
+    }
+
+    /* CONTENT */
+    .wrapper {
+      background: #fff;
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Merriweather';
+      font-size: 40px;
+      margin-bottom: 50px;
+    }
+
+    footer {
+      background: #f5f5f5;
+      padding: 30px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Login</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a class="btn-book" href="#">Book Now</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="vk.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-inner">
+    <div class="brand">
+      <img src="log.png" alt="logo">
+    </div>
+
+    <h1>Event Management System</h1>
+    <p class="lead">Making Your Special Events Lasting Memories</p>
+    <p class="desc">
+      Local, affordable, and completely stress-free!
+    </p>
+
+    <div class="actions">
+      <a class="btn primary" href="#">Book Your Event</a>
+      <a class="btn" href="#">See Our Pricing</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrapper">
+  <h2 class="section-title">Events Are Our Specialty</h2>
+</div>
+
+<footer>
+  © 2026 Event Management System
+</footer>
 
 </body>
 </html>
